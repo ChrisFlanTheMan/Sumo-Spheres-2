@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject powerupIndicator;
     public GameObject projectilePrefab;
 
+    public AudioClip crashSound;
+
     public InputAction playerJoystick;
     public InputAction playerJump;
 
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool canLaunchProjectile = true;
 
     private Rigidbody playerRb;
+    private AudioSource playerAudio;
 
     private void OnEnable()
     {
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -114,11 +118,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && hasPowerup && powerupNumber == 0)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
-            enemyRb.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
+            enemyRb.AddForce(awayFromPlayer, ForceMode.Impulse);
+
+            playerAudio.PlayOneShot(crashSound, 1.0f);
         }
     }
 }

@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6674369088180549109}
   - component: {fileID: 6674369088180549108}
   - component: {fileID: 6674369088180549105}
+  - component: {fileID: 6674369088552482520}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6e6f7a3c9f4839409af1eae15839382, type: 2}
+  - {fileID: 2100000, guid: 2428d1f34e850404d929653306f2a06d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -132,68 +133,182 @@ MonoBehaviour:
   hasPowerup: 0
   powerupIndicator: {fileID: 0}
   projectilePrefab: {fileID: 8131016643470438727, guid: 6be375e0fc2c8f541a60ccd6dbc0d841, type: 3}
-  playerControls:
-    m_Name: Player Controls
+  crashSound: {fileID: 8300000, guid: 095a638eb8f7474449a83e992741237b, type: 3}
+  playerJoystick:
+    m_Name: Player Joystick
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 5c77ac67-92f2-4ae7-a1b9-59e90bbab23e
+    m_Id: 82af0c09-51ab-45d7-becd-9416f9ce0d00
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 3D Vector
-      m_Id: 2c11ae40-af97-4012-84c6-22d1ffa757ad
+      m_Id: 637e1bd5-7698-4233-a0cb-197045a94211
       m_Path: 3DVector
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 4
     - m_Name: up
-      m_Id: 1ccd30ef-4498-4b5f-aaba-6614b35ef45a
+      m_Id: d7bcc4bf-2529-4ba3-92aa-e827d3eb1a83
       m_Path: 
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 8
     - m_Name: down
-      m_Id: 679db4c1-f208-4fc1-975e-29fa285a3eb3
+      m_Id: dcdd43ba-c73a-43e0-b35f-045f039209ff
       m_Path: 
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 8
     - m_Name: left
-      m_Id: be85e922-991a-42e0-83c2-be45a43ac5c7
+      m_Id: b29674c7-e3cb-458f-9a2b-c20d81fdfc6c
       m_Path: <Keyboard>/a
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 8
     - m_Name: right
-      m_Id: 3c96ec16-83ee-4f53-8449-a13940886f16
+      m_Id: f51dca38-d4fe-4775-a40c-8c2dac665a45
       m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 8
     - m_Name: forward
-      m_Id: e930909e-227e-47cd-836f-4f74e9de7281
+      m_Id: f7ebad11-95aa-4485-a106-22a7ae8ef462
       m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 8
     - m_Name: backward
-      m_Id: 9e58b2d5-97c0-4443-91be-6c7485b1b9d0
+      m_Id: d8b66bf2-2599-4319-9d7a-e6f5f2f401a6
       m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Player Controls
+      m_Action: Player Joystick
       m_Flags: 8
     m_Flags: 0
+  playerJump:
+    m_Name: Player Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3640bf6d-fafe-421b-85a6-6a49ae5be78a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b92ed255-24d3-43a1-81b1-68d79e5ee7ad
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Jump
+      m_Flags: 0
+    m_Flags: 0
+--- !u!82 &6674369088552482520
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674369088180549111}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
