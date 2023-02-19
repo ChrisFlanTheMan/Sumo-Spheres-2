@@ -1065,5 +1065,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkyDome
       objectReference: {fileID: 0}
+    - target: {fileID: 5831814716918331118, guid: 363a8f737719f4d2eafb35f885f3706f, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831814716918331118, guid: 363a8f737719f4d2eafb35f885f3706f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 363a8f737719f4d2eafb35f885f3706f, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,23 +13,24 @@ public class PlayerController : MonoBehaviour
     public GameObject powerupIndicator;
     public GameObject projectilePrefab;
 
-    public InputAction playerControls;
+    public InputAction playerJoystick;
+    public InputAction playerJump;
 
     private int powerupNumber;
     private bool canLaunchProjectile = true;
 
     private Rigidbody playerRb;
 
-    private Vector3 moveDirection = Vector3.zero;
-
     private void OnEnable()
     {
-        playerControls.Enable();
+        playerJoystick.Enable();
+        playerJump.Enable();
     }
 
     private void OnDisable()
     {
-        playerControls.Disable();
+        playerJoystick.Disable();
+        playerJump.Disable();
     }
 
     // Start is called before the first frame update
@@ -40,8 +42,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = playerControls.ReadValue<Vector3>();
-        playerRb.AddForce(moveDirection * speed * Time.deltaTime);
+        Vector3 controlDirection = playerJoystick.ReadValue<Vector3>();
+        bool jumpPressed = playerJump.IsPressed();
+
+        int groundLayer = LayerMask.NameToLayer("Ground");
+
+        bool grounded = Physics.Raycast(playerRb.transform.position, Vector3.down, 1f, groundLayer);
+
+        float frictionSpeed = speed / 12f;
+
+        if (jumpPressed && grounded) {
+            playerRb.AddForce(new Vector3(0f, 10f, 0f) * speed * Time.deltaTime);
+        }
+
+        if (grounded) {
+            playerRb.AddForce(controlDirection * speed * Time.deltaTime);
+            playerRb.AddForce(playerRb.velocity * -frictionSpeed * Time.deltaTime);
+        } else {
+            float controlToVelocityAlignment = Vector3.Dot(controlDirection, playerRb.velocity);
+            playerRb.AddForce(controlDirection * Math.Max(-controlToVelocityAlignment, 0) * frictionSpeed * Time.deltaTime);
+        }
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
 
