@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.cloudedmountain.ide.neovim": {
+      "version": "file:/home/terrance/com.cloudedmountain.ide.neovim",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.0",
       "depth": 0,

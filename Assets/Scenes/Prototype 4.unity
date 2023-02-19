@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -490,9 +490,77 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: speed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_Id
+      value: b2e587f5-5fdf-4796-8ded-b563ace06bf4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: powerupIndicator
       value: 
       objectReference: {fileID: 1031937246}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_Name
+      value: Player Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_Id
+      value: 37ff286a-3a78-4bc8-a789-26e5bd1b1305
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_Name
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 7460c5d6-70ea-439b-b4ed-f025a1f86a19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/enter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Id
+      value: bbe578bb-3e56-4de7-ba7c-a6b55fc66265
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 80a01a97-5894-48fe-b775-bdac355582cb
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Id
+      value: a6146a68-a579-4976-9dad-29751c0bf83b
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Id
+      value: fed605fc-6cc1-47f8-a066-ea15f20a6598
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Id
+      value: 90074dcd-462e-4b79-819a-4ed0a2c24c9a
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Id
+      value: 8ea43f72-d8ba-4f4c-bb94-77860b2b14d9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Id
+      value: 18bfca30-7dd3-41da-a790-2a17f5579ed7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Player Jump
+      objectReference: {fileID: 0}
     - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: playerControls.m_SingletonActionBindings.Array.data[3].m_Path
       value: <Keyboard>/leftArrow
@@ -508,6 +576,110 @@ PrefabInstance:
     - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: playerControls.m_SingletonActionBindings.Array.data[6].m_Path
       value: <Keyboard>/downArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Name
+      value: 3D Vector
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Path
+      value: 3DVector
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Name
+      value: up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Name
+      value: down
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Name
+      value: left
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Path
+      value: <Keyboard>/leftArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Name
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Path
+      value: <Keyboard>/rightArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Name
+      value: forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Path
+      value: <Keyboard>/upArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Name
+      value: backward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Path
+      value: <Keyboard>/downArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Flags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Action
+      value: Player Joystick
       objectReference: {fileID: 0}
     - target: {fileID: 6674369088180549111, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: m_Name
@@ -833,9 +1005,197 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: speed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_Id
+      value: 58b87d21-090a-4869-b793-ec5cea50ce23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: powerupIndicator
       value: 
       objectReference: {fileID: 1038736636}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_Name
+      value: Player Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_Id
+      value: 017c1bb2-8366-4724-8408-815d152074a2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_Name
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerControls.m_SingletonActionBindings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Id
+      value: db44d9ff-b710-4ac0-b177-d0444d5943d6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerControls.m_SingletonActionBindings.Array.data[7].m_Id
+      value: eb37e01b-55f5-4921-868d-745720cc4118
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 7eb93f4a-d05c-4463-ad24-fe4f1f23c292
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Id
+      value: d498c9b9-d04a-4e98-9003-109fa742c6b2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Id
+      value: 6de0777e-d484-4c8f-9acd-b3d9c33d655a
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Id
+      value: bd1bcb05-34d2-4450-9a2b-6bcb89c67548
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Id
+      value: bfd20410-28d5-4f7c-baa3-2438bcb771df
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Id
+      value: e459d585-e1a8-43ca-8155-f350b6ab0157
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Id
+      value: 222ebda0-7bc2-4028-9763-adf718e7227b
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Player Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerControls.m_SingletonActionBindings.Array.data[7].m_Path
+      value: <Keyboard>/space
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Name
+      value: 3D Vector
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Path
+      value: 3DVector
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Name
+      value: up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Name
+      value: down
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Name
+      value: left
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Path
+      value: <Keyboard>/a
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Name
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Path
+      value: <Keyboard>/d
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Name
+      value: forward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Path
+      value: <Keyboard>/w
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Name
+      value: backward
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Path
+      value: <Keyboard>/s
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Flags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Flags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerControls.m_SingletonActionBindings.Array.data[7].m_Action
+      value: Player Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[2].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[3].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[4].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[5].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJoystick.m_SingletonActionBindings.Array.data[6].m_Action
+      value: Player Joystick
+      objectReference: {fileID: 0}
     - target: {fileID: 6674369088180549111, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: m_Name
       value: Player
