@@ -209,7 +209,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 362765689}
-  - component: {fileID: 362765688}
   m_Layer: 0
   m_Name: FocalPoint
   m_TagString: Untagged
@@ -217,19 +216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &362765688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362765687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b2332f194dc4f4499277b5bf76fdbba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
 --- !u!4 &362765689
 Transform:
   m_ObjectHideFlags: 0
@@ -373,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150a55f92008a242a48ebd58c80eef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 200
   powerupStrength: 15
   hasPowerup: 0
   powerupIndicator: {fileID: 1038736636}
@@ -394,7 +380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &453884709
 MonoBehaviour:
   m_ObjectHideFlags: 0

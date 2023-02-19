@@ -15,20 +15,20 @@ public class PlayerController : MonoBehaviour
     private bool canLaunchProjectile = true;
 
     private Rigidbody playerRb;
-    private GameObject focalPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        focalPoint = GameObject.Find("FocalPoint");
     }
 
     // Update is called once per frame
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical");
-        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput * Time.deltaTime);
+        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
+        playerRb.AddForce(new Vector3(horizontalInput, 0.0f, verticalInput) * speed * Time.deltaTime);
+
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
 
         if (hasPowerup && powerupNumber == 1 && canLaunchProjectile)
