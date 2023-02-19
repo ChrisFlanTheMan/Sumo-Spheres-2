@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 { 
@@ -11,10 +12,24 @@ public class PlayerController : MonoBehaviour
     public GameObject powerupIndicator;
     public GameObject projectilePrefab;
 
+    public InputAction playerControls;
+
     private int powerupNumber;
     private bool canLaunchProjectile = true;
 
     private Rigidbody playerRb;
+
+    private Vector3 moveDirection = Vector3.zero;
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +40,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
-        playerRb.AddForce(new Vector3(horizontalInput, 0.0f, verticalInput) * speed * Time.deltaTime);
+        moveDirection = playerControls.ReadValue<Vector3>();
+        playerRb.AddForce(moveDirection * speed * Time.deltaTime);
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
 
