@@ -134,6 +134,7 @@ MonoBehaviour:
   powerupIndicator: {fileID: 0}
   projectilePrefab: {fileID: 8131016643470438727, guid: 6be375e0fc2c8f541a60ccd6dbc0d841, type: 3}
   crashSound: {fileID: 8300000, guid: 095a638eb8f7474449a83e992741237b, type: 3}
+  jumpSound: {fileID: 8300000, guid: 1eedf72ad0fb31843ad30b3356f4cbc4, type: 3}
   playerJoystick:
     m_Name: Player Joystick
     m_Type: 0
