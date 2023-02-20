@@ -90,11 +90,13 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ProjectileCountdown());
         }
 
+        // Respawn
         if (transform.position.y < -10)
         {
             deathCounter++;
             playerRb.velocity = Vector3.zero;
             playerRb.rotation = Quaternion.identity;
+            playerRb.angularVelocity = Vector3.zero;
             transform.position = startPosition + new Vector3(0, 5, 0);
         }
     }
