@@ -26,7 +26,8 @@ public class PowerupManager : MonoBehaviour
 
     private void SpawnPowerup()
     {
-        Instantiate(powerupPrefab, RandomSpawnPosition(), powerupPrefab.transform.rotation);
+        GameObject powerup = Instantiate(powerupPrefab, RandomSpawnPosition(), powerupPrefab.transform.rotation);
+        Destroy(powerup, spawnInterval);
     }
 
     private Vector3 RandomSpawnPosition()

@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool readyToJump = false;
 
     public GameObject powerupIndicator;
-    public GameObject projectilePrefab;
 
     public AudioClip crashSound;
     public AudioClip jumpSound;
@@ -28,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private int powerupNumber;
     private bool canLaunchProjectile = true;
     private int totalLives = 5;
+    public GameObject explosionPrefab;
+
     private int deathCounter;
     private Vector3 startPosition;
 
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
         playerAudio = GetComponent<AudioSource>();
         startPosition = transform.position;
         //screenText = GameObject.Find("ScreenText").GetComponent(TextMeshProUGUI);
+        powerupIndicator.SetActive(false);
     }
 
     // Update is called once per frame
@@ -71,7 +73,6 @@ public class PlayerController : MonoBehaviour
         float frictionSpeed = speed / 20f;
         float airControlSpeed = speed / 14f;
 
-        //Debug.Log(transform.position.ToString());
         // Respawn
         if (transform.position.y < -10 || transform.position.y > 100)
         {
@@ -98,25 +99,7 @@ public class PlayerController : MonoBehaviour
         }
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
-
-        if (hasPowerup && powerupNumber == 1 && canLaunchProjectile)
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                launchProjectileAtEnemy(enemies[i]);
-            }
-
-            canLaunchProjectile = false;
-            StartCoroutine(ProjectileCountdown());
-        }
-
-    }
-
-    private void launchProjectileAtEnemy(GameObject enemy)
-    {
-        GameObject projectile = Instantiate(projectilePrefab, transform.position + new Vector3(1, 0, 0), projectilePrefab.transform.rotation);
-        projectile.GetComponent<Projectile>().SetEnemyTarget(enemy);
+        powerupIndicator.transform.rotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -125,8 +108,6 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;
             powerupIndicator.SetActive(true);
-
-            powerupNumber = 1;//Random.Range(0, 2);
 
             Destroy(other.gameObject);
 
@@ -193,9 +174,8 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Sun"))
         {
-            Instantiate(explode, transform.position, Quaternion.identity);
-            explode.Play();
-            StartCoroutine(ExplodeCountdown());
+            GameObject instance = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject.Destroy(instance.gameObject, 2.5f);
             Respawn();
         }
     }
