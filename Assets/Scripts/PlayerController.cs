@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 { 
-    public float speed = 750.0f;
+    public float speed = 1000.0f;
     public float powerupStrength = 15.0f;
     public bool hasPowerup = false;
 
@@ -122,6 +122,13 @@ public class PlayerController : MonoBehaviour
         canLaunchProjectile = true;
     }
 
+    IEnumerator ImpactPause(float time)
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(time);
+        Time.timeScale = 1;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -131,6 +138,10 @@ public class PlayerController : MonoBehaviour
             enemyRb.AddForce(awayFromPlayer, ForceMode.Impulse);
 
             playerAudio.PlayOneShot(crashSound, 1.0f);
+
+            float totalSpeed = enemyRb.velocity.magnitude + playerRb.velocity.magnitude;
+            float pauseAmount = Mathf.Lerp(0f, 0.2f, Math.Min(1f, totalSpeed/40f));
+            StartCoroutine(ImpactPause(pauseAmount));
         }
     }
 }
