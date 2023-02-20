@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
 
     public AudioClip crashSound;
+    public AudioClip jumpSound;
 
     public InputAction playerJoystick;
     public InputAction playerJump;
@@ -57,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
         if (jumpPressed && grounded) {
             playerRb.AddForce(new Vector3(0f, 10f, 0f) * speed * Time.deltaTime);
+
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.PlayOneShot(jumpSound, 1.0f);
+            }
         }
 
         if (grounded) {

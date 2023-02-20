@@ -494,6 +494,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1031937246}
     - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 6cc35a5f-8f45-46b8-ab86-462d0b0b54b5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
+      propertyPath: playerJump.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Keyboard>/numpad0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674369088180549105, guid: 658bb9b081bec7a40add7807723b242b, type: 3}
       propertyPath: playerControls.m_SingletonActionBindings.Array.data[3].m_Path
       value: <Keyboard>/leftArrow
       objectReference: {fileID: 0}
