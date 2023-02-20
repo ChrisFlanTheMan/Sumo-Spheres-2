@@ -22,4 +22,9 @@ public class PlayerInputHandler : MonoBehaviour
         Vector2 controllerDirection = context.ReadValue<Vector2>();
         playerController.SetPlayerMoveDirection(new Vector3(controllerDirection.x, 0, controllerDirection.y));
     }
+
+    public void OnJump(CallbackContext context)
+    {
+        playerController.SetJumpPressed(true);
+    }
 }

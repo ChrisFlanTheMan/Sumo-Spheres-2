@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource playerAudio;
 
     private Vector3 controlDirection = Vector3.zero;
+    private bool jumpPressed = false;
 
     private void OnEnable()
     {
@@ -49,6 +50,14 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerMoveDirection(Vector3 moveDirection)
     {
         controlDirection = moveDirection;
+    }
+
+    public void SetJumpPressed(bool jumpPressed)
+    {
+        if (isGrounded())
+        {
+            this.jumpPressed = jumpPressed;
+        }
     }
 
     // Start is called before the first frame update
@@ -64,14 +73,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool jumpPressed = false; // = playerJump.IsPressed();
-
-        int groundLayer = LayerMask.NameToLayer("Ground");
-
-        bool playerNotMovingVertically = Math.Abs(playerRb.velocity.y) < 0.001f;
-        bool groundBeneathPlayer = Physics.Raycast(playerRb.transform.position, Vector3.down, 0.8f, groundLayer);
-        bool grounded = playerNotMovingVertically && groundBeneathPlayer;
-
         float frictionSpeed = speed / 20f;
         float airControlSpeed = speed / 14f;
 
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
             PlayerDied();
         }
 
-        if (grounded) {
+        if (isGrounded()) {
             if (!readyToJump) {
                 StartCoroutine(ReadyToJumpCountdown());
             }
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
                 playerAudio.PlayOneShot(jumpSound, 1.0f);
 
                 readyToJump = false;
+                jumpPressed = false;
             }
 
             playerRb.AddForce(controlDirection * speed * Time.deltaTime);
@@ -102,6 +104,15 @@ public class PlayerController : MonoBehaviour
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
         powerupIndicator.transform.rotation = Quaternion.identity;
+    }
+
+    private bool isGrounded()
+    {
+        int groundLayer = LayerMask.NameToLayer("Ground");
+
+        bool playerNotMovingVertically = Math.Abs(playerRb.velocity.y) < 0.001f;
+        bool groundBeneathPlayer = Physics.Raycast(playerRb.transform.position, Vector3.down, 0.8f, groundLayer);
+        return playerNotMovingVertically && groundBeneathPlayer;
     }
 
     private void OnTriggerEnter(Collider other)
