@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public InputAction playerJoystick;
     public InputAction playerJump;
     public TextMeshProUGUI deathText;
-    public ParticleSystem explode;
+    public GameObject explosionPrefab;
 
     private int deathCounter;
     private Vector3 startPosition;
@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
         float frictionSpeed = speed / 20f;
         float airControlSpeed = speed / 14f;
 
-        Debug.Log(transform.position.ToString());
         // Respawn
         if (transform.position.y < -10 || transform.position.y > 100)
         {
@@ -117,12 +116,6 @@ public class PlayerController : MonoBehaviour
         powerupIndicator.SetActive(false);
     }
 
-    IEnumerator ExplodeCountdown()
-    {
-        yield return new WaitForSeconds(9);
-//        DestroyImmediate(explode, true);
-    }
-
     IEnumerator ReadyToJumpCountdown()
     {
         yield return new WaitForSeconds(0.3f);
@@ -157,9 +150,8 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Sun"))
         {
-            Instantiate(explode, transform.position, Quaternion.identity);
-            explode.Play();
-            StartCoroutine(ExplodeCountdown());
+            GameObject instance = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject.Destroy(instance.gameObject, 2.5f);
             Respawn();
         }
     }

@@ -5063,7 +5063,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   deathText: {fileID: 0}
-  explode: {fileID: 0}
+  explosionPrefab: {fileID: 4215395541070224814, guid: 24d3de1f1fdfeb5c5a10d737d8656f73, type: 3}
 --- !u!82 &5325370079537176337
 AudioSource:
   m_ObjectHideFlags: 0
