@@ -196,6 +196,8 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = Vector3.zero;
         playerRb.rotation = Quaternion.identity;
         playerRb.angularVelocity = Vector3.zero;
+        hasPowerup = false;
+        powerupIndicator.SetActive(false);
         transform.position = startPosition + new Vector3(0, 5, 0);
     }
 
