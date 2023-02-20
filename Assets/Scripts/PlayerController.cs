@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float powerupStrength = 15.0f;
     public bool hasPowerup = false;
 
+    public bool readyToJump = false;
+
     public GameObject powerupIndicator;
     public GameObject projectilePrefab;
 
@@ -58,25 +60,30 @@ public class PlayerController : MonoBehaviour
 
         int groundLayer = LayerMask.NameToLayer("Ground");
 
-        bool grounded = Physics.Raycast(playerRb.transform.position, Vector3.down, 1f, groundLayer);
+        bool playerNotMovingVertically = Math.Abs(playerRb.velocity.y) < 0.001f;
+        bool groundBeneathPlayer = Physics.Raycast(playerRb.transform.position, Vector3.down, 0.8f, groundLayer);
+        bool grounded = playerNotMovingVertically && groundBeneathPlayer;
 
-        float frictionSpeed = speed / 12f;
-
-        if (jumpPressed && grounded) {
-            playerRb.AddForce(new Vector3(0f, 10f, 0f) * speed * Time.deltaTime);
-
-            if (!playerAudio.isPlaying)
-            {
-                playerAudio.PlayOneShot(jumpSound, 1.0f);
-            }
-        }
+        float frictionSpeed = speed / 20f;
+        float airControlSpeed = speed / 14f;
 
         if (grounded) {
+            if (!readyToJump) {
+                StartCoroutine(ReadyToJumpCountdown());
+            }
+
+            if (readyToJump && jumpPressed) {
+                playerRb.AddForce(Vector3.up * 8f, ForceMode.Impulse);
+                playerAudio.PlayOneShot(jumpSound, 1.0f);
+
+                readyToJump = false;
+            }
+
             playerRb.AddForce(controlDirection * speed * Time.deltaTime);
             playerRb.AddForce(playerRb.velocity * -frictionSpeed * Time.deltaTime);
         } else {
             float controlToVelocityAlignment = Vector3.Dot(controlDirection, playerRb.velocity);
-            playerRb.AddForce(controlDirection * Math.Max(-controlToVelocityAlignment, 0) * frictionSpeed * Time.deltaTime);
+            playerRb.AddForce(controlDirection * Math.Max(-controlToVelocityAlignment, 0) * airControlSpeed * Time.deltaTime);
         }
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
@@ -140,6 +147,12 @@ public class PlayerController : MonoBehaviour
 //        DestroyImmediate(explode, true);
     }
 
+    IEnumerator ReadyToJumpCountdown()
+    {
+        yield return new WaitForSeconds(0.3f);
+        readyToJump = true;
+    }
+
     IEnumerator ImpactPause(float time)
     {
         Time.timeScale = 0;
@@ -152,13 +165,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
-            Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position;
-            enemyRb.AddForce(awayFromPlayer, ForceMode.Impulse);
+            Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position).normalized;
+            float collisionAlignedEnemySpeed = Vector3.Dot(awayFromPlayer, enemyRb.velocity);
+            float collisionAlignedPlayerSpeed = Vector3.Dot(-awayFromPlayer, playerRb.velocity);
+            // Unity collision already happened, just amplify the result
+            playerRb.AddForce(-awayFromPlayer * collisionAlignedPlayerSpeed * 0.8f, ForceMode.Impulse);
 
-            playerAudio.PlayOneShot(crashSound, 1.0f);
+            float totalCollisionAlignedSpeed = collisionAlignedEnemySpeed + collisionAlignedPlayerSpeed;
+            float collisionScaling = Mathf.Pow(10f, Math.Min(1f, totalCollisionAlignedSpeed/20f))/10f;
+            playerAudio.PlayOneShot(crashSound, collisionScaling);
 
-            float totalSpeed = enemyRb.velocity.magnitude + playerRb.velocity.magnitude;
-            float pauseAmount = Mathf.Lerp(0f, 0.2f, Math.Min(1f, totalSpeed/40f));
+            float pauseAmount = Mathf.Lerp(0f, 0.2f, collisionScaling);
             StartCoroutine(ImpactPause(pauseAmount));
         }
         if (collision.gameObject.CompareTag("Sun"))
