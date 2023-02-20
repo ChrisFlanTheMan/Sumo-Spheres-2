@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 { 
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public InputAction playerJoystick;
     public InputAction playerJump;
+    public TextMeshProUGUI deathText;
+    public ParticleSystem explode;
 
     private int powerupNumber;
     private bool canLaunchProjectile = true;
@@ -93,11 +96,7 @@ public class PlayerController : MonoBehaviour
         // Respawn
         if (transform.position.y < -10)
         {
-            deathCounter++;
-            playerRb.velocity = Vector3.zero;
-            playerRb.rotation = Quaternion.identity;
-            playerRb.angularVelocity = Vector3.zero;
-            transform.position = startPosition + new Vector3(0, 5, 0);
+            Respawn();
         }
     }
 
@@ -135,6 +134,12 @@ public class PlayerController : MonoBehaviour
         canLaunchProjectile = true;
     }
 
+    IEnumerator ExplodeCountdown()
+    {
+        yield return new WaitForSeconds(9);
+//        DestroyImmediate(explode, true);
+    }
+
     IEnumerator ImpactPause(float time)
     {
         Time.timeScale = 0;
@@ -156,5 +161,22 @@ public class PlayerController : MonoBehaviour
             float pauseAmount = Mathf.Lerp(0f, 0.2f, Math.Min(1f, totalSpeed/40f));
             StartCoroutine(ImpactPause(pauseAmount));
         }
+        if (collision.gameObject.CompareTag("Sun"))
+        {
+            Instantiate(explode, transform.position, Quaternion.identity);
+            explode.Play();
+            StartCoroutine(ExplodeCountdown());
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+        deathCounter++;
+        //deathText.SetText("Player: " + deathCounter);
+        playerRb.velocity = Vector3.zero;
+        playerRb.rotation = Quaternion.identity;
+        playerRb.angularVelocity = Vector3.zero;
+        transform.position = startPosition + new Vector3(0, 5, 0);
     }
 }
