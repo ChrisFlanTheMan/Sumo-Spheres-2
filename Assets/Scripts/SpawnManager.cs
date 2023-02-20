@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public GameObject powerupPrefab;
     public GameObject[] playerPrefabs;
 
     public int waveNumber = 1;
@@ -17,7 +16,6 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         SpawnEnemies();
-        SpawnPowerup();
         SpawnPlayer();
     }
 
@@ -39,11 +37,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void SpawnPowerup()
-    {
-        Instantiate(powerupPrefab, GetSpawnPos(), powerupPrefab.transform.rotation);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -52,7 +45,6 @@ public class SpawnManager : MonoBehaviour
         {
             waveNumber++;
             SpawnEnemies();
-            SpawnPowerup();
         }
     }
 

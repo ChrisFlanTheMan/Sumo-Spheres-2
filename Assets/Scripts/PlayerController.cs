@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool readyToJump = false;
 
     public GameObject powerupIndicator;
-    public GameObject projectilePrefab;
 
     public AudioClip crashSound;
     public AudioClip jumpSound;
@@ -25,8 +24,6 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI deathText;
     public ParticleSystem explode;
 
-    private int powerupNumber;
-    private bool canLaunchProjectile = true;
     private int deathCounter;
     private Vector3 startPosition;
 
@@ -52,6 +49,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
         startPosition = transform.position;
+        powerupIndicator.SetActive(false);
     }
 
     // Update is called once per frame
@@ -96,25 +94,7 @@ public class PlayerController : MonoBehaviour
         }
 
         powerupIndicator.transform.position = transform.position - new Vector3(0, 0.5f, 0);
-
-        if (hasPowerup && powerupNumber == 1 && canLaunchProjectile)
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                launchProjectileAtEnemy(enemies[i]);
-            }
-
-            canLaunchProjectile = false;
-            StartCoroutine(ProjectileCountdown());
-        }
-
-    }
-
-    private void launchProjectileAtEnemy(GameObject enemy)
-    {
-        GameObject projectile = Instantiate(projectilePrefab, transform.position + new Vector3(1, 0, 0), projectilePrefab.transform.rotation);
-        projectile.GetComponent<Projectile>().SetEnemyTarget(enemy);
+        powerupIndicator.transform.rotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -123,8 +103,6 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;
             powerupIndicator.SetActive(true);
-
-            powerupNumber = 1;//Random.Range(0, 2);
 
             Destroy(other.gameObject);
 
@@ -137,12 +115,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         powerupIndicator.SetActive(false);
-    }
-
-    IEnumerator ProjectileCountdown()
-    {
-        yield return new WaitForSeconds(1);
-        canLaunchProjectile = true;
     }
 
     IEnumerator ExplodeCountdown()
