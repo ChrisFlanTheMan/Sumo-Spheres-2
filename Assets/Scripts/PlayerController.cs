@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
+using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerController : MonoBehaviour
-{ 
+{
+    public int playerIndex;
     public float speed = 1000.0f;
     public float powerupStrength = 15.0f;
     public bool hasPowerup = false;
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public InputAction playerJoystick;
     public InputAction playerJump;
     private TextMeshProUGUI screenText;
+
+    public TextMeshProUGUI deathText;
     public ParticleSystem explode;
 
     private int powerupNumber;
@@ -35,17 +39,16 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     private AudioSource playerAudio;
 
+    private Vector3 controlDirection = Vector3.zero;
+
     private void OnEnable()
     {
-        playerJoystick.Enable();
-        playerJump.Enable();
         startPosition = transform.position;
     }
 
-    private void OnDisable()
+    public void SetPlayerMoveDirection(Vector3 moveDirection)
     {
-        playerJoystick.Disable();
-        playerJump.Disable();
+        controlDirection = moveDirection;
     }
 
     // Start is called before the first frame update
@@ -61,8 +64,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 controlDirection = playerJoystick.ReadValue<Vector3>();
-        bool jumpPressed = playerJump.IsPressed();
+        bool jumpPressed = false; // = playerJump.IsPressed();
 
         int groundLayer = LayerMask.NameToLayer("Ground");
 
