@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     private int powerupNumber;
     private bool canLaunchProjectile = true;
+    private int deathCounter;
+    private Vector3 startPosition;
 
     private Rigidbody playerRb;
     private AudioSource playerAudio;
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -79,6 +82,14 @@ public class PlayerController : MonoBehaviour
 
             canLaunchProjectile = false;
             StartCoroutine(ProjectileCountdown());
+        }
+
+        if (transform.position.y < -10)
+        {
+            deathCounter++;
+            playerRb.velocity = Vector3.zero;
+            playerRb.rotation = Quaternion.identity;
+            transform.position = startPosition + new Vector3(0, 5, 0);
         }
     }
 
