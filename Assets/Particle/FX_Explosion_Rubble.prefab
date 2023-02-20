@@ -4915,6 +4915,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 402300}
     m_Modifications:
+    - target: {fileID: 4215395541056235970, guid: 24d3de1f1fdfeb5c5a10d737d8656f73, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4215395541070224814, guid: 24d3de1f1fdfeb5c5a10d737d8656f73, type: 3}
       propertyPath: m_Name
       value: FX_Explosion_Fire

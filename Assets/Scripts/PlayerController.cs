@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")|| collision.gameObject.CompareTag("Meteor"))
         {
             Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position).normalized;
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject instance = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             GameObject.Destroy(instance.gameObject, 2.5f);
-            Respawn();
+            PlayerDied();
         }
     }
 
@@ -186,13 +186,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log(gameObject.name + " has died: " + deathCounter.ToString());
         if (totalLives < deathCounter)
         {
-            screenText.SetText(gameObject.name + " is out of lives");
-            StartCoroutine(ScreenTextClearDelayed());
+            //screenText.SetText(gameObject.name + " is out of lives");
+            //StartCoroutine(ScreenTextClearDelayed());
             Destroy(gameObject);
         } else {
             Respawn();
         }
     }
+
     private void Respawn()
     {
         playerRb.velocity = Vector3.zero;
@@ -200,12 +201,18 @@ public class PlayerController : MonoBehaviour
         playerRb.angularVelocity = Vector3.zero;
         hasPowerup = false;
         powerupIndicator.SetActive(false);
-        transform.position = startPosition + new Vector3(0, 5, 0);
+        transform.position = startPosition + new Vector3(0, 25, 0);
     }
 
     private float getPowerupForceModifier(GameObject enemyPlayer)
     {
-        PlayerController enemyPlayerController = enemyPlayer.GetComponent<PlayerController>();
-        return enemyPlayerController.hasPowerup ? powerupStrength : 1.0f;
+        PlayerController enemyPlayerController = null;
+        bool hasPlayerController = enemyPlayer.TryGetComponent<PlayerController>(out enemyPlayerController);
+        if (hasPlayerController)
+        {
+            return enemyPlayerController.hasPowerup ? powerupStrength : 1.0f;
+        }
+
+        else { return 1.0f; }
     }
 }
