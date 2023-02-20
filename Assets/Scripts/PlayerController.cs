@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
             Respawn();
         }
     }
+
     private void Respawn()
     {
         playerRb.velocity = Vector3.zero;
@@ -200,7 +201,7 @@ public class PlayerController : MonoBehaviour
         playerRb.angularVelocity = Vector3.zero;
         hasPowerup = false;
         powerupIndicator.SetActive(false);
-        transform.position = startPosition + new Vector3(0, 5, 0);
+        transform.position = startPosition + new Vector3(0, 25, 0);
     }
 
     private float getPowerupForceModifier(GameObject enemyPlayer)
