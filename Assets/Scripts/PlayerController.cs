@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -168,8 +169,9 @@ public class PlayerController : MonoBehaviour
             Vector3 awayFromPlayer = (collision.gameObject.transform.position - transform.position).normalized;
             float collisionAlignedEnemySpeed = Vector3.Dot(awayFromPlayer, enemyRb.velocity);
             float collisionAlignedPlayerSpeed = Vector3.Dot(-awayFromPlayer, playerRb.velocity);
+
             // Unity collision already happened, just amplify the result
-            playerRb.AddForce(-awayFromPlayer * collisionAlignedPlayerSpeed * 0.8f, ForceMode.Impulse);
+            playerRb.AddForce(-awayFromPlayer * collisionAlignedPlayerSpeed * 0.8f * getPowerupForceModifier(), ForceMode.Impulse);
 
             float totalCollisionAlignedSpeed = collisionAlignedEnemySpeed + collisionAlignedPlayerSpeed;
             float collisionScaling = Mathf.Pow(10f, Math.Min(1f, totalCollisionAlignedSpeed/20f))/10f;
@@ -195,5 +197,10 @@ public class PlayerController : MonoBehaviour
         playerRb.rotation = Quaternion.identity;
         playerRb.angularVelocity = Vector3.zero;
         transform.position = startPosition + new Vector3(0, 5, 0);
+    }
+
+    private float getPowerupForceModifier()
+    {
+        return hasPowerup ? powerupStrength : 1.0f;
     }
 }
