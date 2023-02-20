@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(transform.position.ToString());
         // Respawn
-        if (transform.position.y < -10)
+        if (transform.position.y < -10 || transform.position.y > 100)
         {
             Respawn();
         }
