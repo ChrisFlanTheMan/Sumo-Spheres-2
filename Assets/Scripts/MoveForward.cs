@@ -10,13 +10,19 @@ public class MoveForward : MonoBehaviour
     public GameObject sun;
 
     private Vector3 moveDirection;
+    private float spawnRangeMin = 0f;
+    private float spawnRangeMax = 10f;
+    private Vector3 randomOffset;
 
     private float xRange = 50.0f;
 
     void Start()
     {
         GameObject sun = GameObject.Find("Sun");
-        moveDirection = (sun.transform.position - transform.position).normalized;
+	float randomXOffset = Random.Range(spawnRangeMin, spawnRangeMax);
+	float randomYOffset = Random.Range(spawnRangeMin, spawnRangeMax);
+        randomOffset = new Vector3(randomXOffset, 0, randomYOffset);
+        moveDirection = (sun.transform.position + randomOffset - transform.position).normalized;
     }
 
     // Update is called once per frame
