@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 750
+  player: {fileID: 4190227110472469412, guid: b598a2c15bdaf1742aeb3a75ac999e08, type: 3}

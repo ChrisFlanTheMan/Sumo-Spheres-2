@@ -218,7 +218,7 @@ MonoBehaviour:
       m_Action: Player Jump
       m_Flags: 0
     m_Flags: 0
-  deathText: {fileID: 0}
+  screenText: {fileID: 0}
   explode: {fileID: 0}
 --- !u!82 &6674369088552482520
 AudioSource:

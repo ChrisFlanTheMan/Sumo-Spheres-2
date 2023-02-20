@@ -22,11 +22,12 @@ public class PlayerController : MonoBehaviour
 
     public InputAction playerJoystick;
     public InputAction playerJump;
-    public TextMeshProUGUI deathText;
+    private TextMeshProUGUI screenText;
     public ParticleSystem explode;
 
     private int powerupNumber;
     private bool canLaunchProjectile = true;
+    private int totalLives = 5;
     private int deathCounter;
     private Vector3 startPosition;
 
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerAudio = GetComponent<AudioSource>();
         startPosition = transform.position;
+        //screenText = GameObject.Find("ScreenText").GetComponent(TextMeshProUGUI);
     }
 
     // Update is called once per frame
@@ -69,11 +71,11 @@ public class PlayerController : MonoBehaviour
         float frictionSpeed = speed / 20f;
         float airControlSpeed = speed / 14f;
 
-        Debug.Log(transform.position.ToString());
+        //Debug.Log(transform.position.ToString());
         // Respawn
         if (transform.position.y < -10 || transform.position.y > 100)
         {
-            Respawn();
+            PlayerDied();
         }
 
         if (grounded) {
@@ -139,6 +141,12 @@ public class PlayerController : MonoBehaviour
         powerupIndicator.SetActive(false);
     }
 
+    IEnumerator ScreenTextClearDelayed()
+    {
+        yield return new WaitForSeconds(5);
+        screenText.SetText("");
+    }
+
     IEnumerator ProjectileCountdown()
     {
         yield return new WaitForSeconds(1);
@@ -192,10 +200,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Respawn()
+    private void PlayerDied()
     {
         deathCounter++;
-        //deathText.SetText("Player: " + deathCounter);
+        Debug.Log(gameObject.name + " has died: " + deathCounter.ToString());
+        if (totalLives < deathCounter)
+        {
+            screenText.SetText(gameObject.name + " is out of lives");
+            StartCoroutine(ScreenTextClearDelayed());
+            Destroy(gameObject);
+        } else {
+            Respawn();
+        }
+    }
+    private void Respawn()
+    {
         playerRb.velocity = Vector3.zero;
         playerRb.rotation = Quaternion.identity;
         playerRb.angularVelocity = Vector3.zero;
