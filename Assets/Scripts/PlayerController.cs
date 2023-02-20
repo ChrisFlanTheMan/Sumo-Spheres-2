@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
             float collisionAlignedPlayerSpeed = Vector3.Dot(-awayFromPlayer, playerRb.velocity);
 
             // Unity collision already happened, just amplify the result
-            playerRb.AddForce(-awayFromPlayer * collisionAlignedPlayerSpeed * 0.8f * getPowerupForceModifier(), ForceMode.Impulse);
+            playerRb.AddForce(-awayFromPlayer * collisionAlignedPlayerSpeed * 0.8f * getPowerupForceModifier(collision.gameObject), ForceMode.Impulse);
 
             float totalCollisionAlignedSpeed = collisionAlignedEnemySpeed + collisionAlignedPlayerSpeed;
             float collisionScaling = Mathf.Pow(10f, Math.Min(1f, totalCollisionAlignedSpeed/20f))/10f;
@@ -204,8 +204,9 @@ public class PlayerController : MonoBehaviour
         transform.position = startPosition + new Vector3(0, 5, 0);
     }
 
-    private float getPowerupForceModifier()
+    private float getPowerupForceModifier(GameObject enemyPlayer)
     {
-        return hasPowerup ? powerupStrength : 1.0f;
+        PlayerController enemyPlayerController = enemyPlayer.GetComponent<PlayerController>();
+        return enemyPlayerController.hasPowerup ? powerupStrength : 1.0f;
     }
 }
