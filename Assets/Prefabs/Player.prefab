@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048534606}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5568864, y: 0, z: -0.22143333}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5031,7 +5031,7 @@ MonoBehaviour:
       m_Action: Player Jump
       m_Flags: 0
     m_Flags: 0
-  screenText: {fileID: 0}
+  explode: {fileID: 0}
   explosionPrefab: {fileID: 4215395541070224814, guid: 24d3de1f1fdfeb5c5a10d737d8656f73, type: 3}
 --- !u!82 &6674369088552482520
 AudioSource:
