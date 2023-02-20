@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         playerJoystick.Enable();
         playerJump.Enable();
+        startPosition = transform.position;
     }
 
     private void OnDisable()
@@ -67,6 +68,13 @@ public class PlayerController : MonoBehaviour
 
         float frictionSpeed = speed / 20f;
         float airControlSpeed = speed / 14f;
+
+        Debug.Log(transform.position.ToString());
+        // Respawn
+        if (transform.position.y < -10)
+        {
+            Respawn();
+        }
 
         if (grounded) {
             if (!readyToJump) {
@@ -101,11 +109,6 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ProjectileCountdown());
         }
 
-        // Respawn
-        if (transform.position.y < -10)
-        {
-            Respawn();
-        }
     }
 
     private void launchProjectileAtEnemy(GameObject enemy)
