@@ -15,7 +15,6 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies();
         SpawnPlayer();
     }
 
@@ -28,24 +27,11 @@ public class SpawnManager : MonoBehaviour
             Instantiate(playerPrefab, GetSpawnPos(), playerPrefab.transform.rotation);
         }
     }
-    private void SpawnEnemies()
-    {
-        for (int i = 0; i < waveNumber; i++)
-        {
-            GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-            Instantiate(enemyPrefab, GetSpawnPos(), enemyPrefab.transform.rotation);
-        }
-    }
 
     // Update is called once per frame
     void Update()
     {
-        int totalEnemies = FindObjectsOfType<Enemy>().Length;
-        if (totalEnemies == 0)
-        {
-            waveNumber++;
-            SpawnEnemies();
-        }
+
     }
 
     private Vector3 GetSpawnPos()

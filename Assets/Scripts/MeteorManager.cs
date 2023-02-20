@@ -17,7 +17,7 @@ public class MeteorManager : MonoBehaviour
     void Start()
     {
         startDelay = Random.Range(2.5f, 4.0f);
-        spawnInterval = Random.Range(1.0f, 8.0f);
+        spawnInterval = Random.Range(3.0f, 8.0f);
         InvokeRepeating("SpawnMeteor", startDelay, spawnInterval);
     }
 
