@@ -11,6 +11,8 @@ public class MoveForward : MonoBehaviour
 
     private Vector3 moveDirection;
 
+    private float xRange = 50.0f;
+
     void Start()
     {
         GameObject sun = GameObject.Find("Sun");
@@ -22,5 +24,10 @@ public class MoveForward : MonoBehaviour
     {
         transform.Translate(moveDirection * Time.deltaTime * speed, Space.World);
         transform.Rotate(new Vector3(0, turnSpeed, 0) * Time.deltaTime);
+
+        if (transform.position.x < -xRange || transform.position.x > xRange)
+        {
+            Destroy(gameObject);
+        }
     }
 }
