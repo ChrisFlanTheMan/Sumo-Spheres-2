@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject instance = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             GameObject.Destroy(instance.gameObject, 2.5f);
-            Respawn();
+            PlayerDied();
         }
     }
 
@@ -186,8 +186,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log(gameObject.name + " has died: " + deathCounter.ToString());
         if (totalLives < deathCounter)
         {
-            screenText.SetText(gameObject.name + " is out of lives");
-            StartCoroutine(ScreenTextClearDelayed());
+            //screenText.SetText(gameObject.name + " is out of lives");
+            //StartCoroutine(ScreenTextClearDelayed());
             Destroy(gameObject);
         } else {
             Respawn();
