@@ -128,10 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150a55f92008a242a48ebd58c80eef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 1000
   powerupStrength: 15
   hasPowerup: 0
-  powerupIndicator: {fileID: 0}
+  readyToJump: 0
+  powerupIndicator: {fileID: 3052531559196408467, guid: 92094040544ac13419b6110840f4da3c, type: 3}
   projectilePrefab: {fileID: 8131016643470438727, guid: 6be375e0fc2c8f541a60ccd6dbc0d841, type: 3}
   crashSound: {fileID: 8300000, guid: 095a638eb8f7474449a83e992741237b, type: 3}
   jumpSound: {fileID: 8300000, guid: 1eedf72ad0fb31843ad30b3356f4cbc4, type: 3}
@@ -217,6 +218,8 @@ MonoBehaviour:
       m_Action: Player Jump
       m_Flags: 0
     m_Flags: 0
+  deathText: {fileID: 0}
+  explode: {fileID: 0}
 --- !u!82 &6674369088552482520
 AudioSource:
   m_ObjectHideFlags: 0
