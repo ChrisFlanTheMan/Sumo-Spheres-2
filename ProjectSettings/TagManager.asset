@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Sun
   - Meteor
+  - Player1
   layers:
   - Default
   - TransparentFX

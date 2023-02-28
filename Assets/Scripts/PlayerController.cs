@@ -9,6 +9,8 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action<int> OnPlayerDeath;
+    
     public int playerIndex;
     public float speed = 1000.0f;
     public float powerupStrength = 15.0f;
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -10 || transform.position.y > 100)
         {
             PlayerDied();
+            OnPlayerDeath?.Invoke(playerIndex);
         }
 
         if (isGrounded()) {
@@ -190,14 +193,16 @@ public class PlayerController : MonoBehaviour
             GameObject instance = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             GameObject.Destroy(instance.gameObject, 2.5f);
             PlayerDied();
+            OnPlayerDeath?.Invoke(playerIndex);
         }
     }
 
     private void PlayerDied()
     {
         deathCounter++;
+
         Debug.Log(gameObject.name + " has died: " + deathCounter.ToString());
-        if (totalLives < deathCounter)
+        if (totalLives <= deathCounter)
         {
             //screenText.SetText(gameObject.name + " is out of lives");
             //StartCoroutine(ScreenTextClearDelayed());

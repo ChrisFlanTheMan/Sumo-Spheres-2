@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static event Action<int> OnPlayerStart;
+
     public GameObject[] enemyPrefabs;
     public GameObject[] playerPrefabs;
 
     public int waveNumber = 1;
-    public int playerCount = 4;
+    public int playerCount = 5;
 
     private float spawnRange = 9.0f;
 
@@ -16,6 +19,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         SpawnPlayer();
+        OnPlayerStart?.Invoke(playerCount);
     }
 
     private void SpawnPlayer()
@@ -41,6 +45,6 @@ public class SpawnManager : MonoBehaviour
 
     private float GetRandomCoordinatePos()
     {
-        return Random.Range(-spawnRange, spawnRange);
+        return UnityEngine.Random.Range(-spawnRange, spawnRange);
     }
 }

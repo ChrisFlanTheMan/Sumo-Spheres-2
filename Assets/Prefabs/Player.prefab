@@ -4942,6 +4942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150a55f92008a242a48ebd58c80eef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndex: 0
   speed: 1000
   powerupStrength: 15
   hasPowerup: 0
@@ -5031,8 +5032,10 @@ MonoBehaviour:
       m_Action: Player Jump
       m_Flags: 0
     m_Flags: 0
+  deathText: {fileID: 0}
   explode: {fileID: 0}
   explosionPrefab: {fileID: 4215395541070224814, guid: 24d3de1f1fdfeb5c5a10d737d8656f73, type: 3}
+  ScoreManager: {fileID: 4122132555763708550, guid: f7eed5f3da2a7fa479b79006f7279faf, type: 3}
 --- !u!82 &6674369088552482520
 AudioSource:
   m_ObjectHideFlags: 0

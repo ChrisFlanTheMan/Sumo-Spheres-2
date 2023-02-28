@@ -138,7 +138,26 @@ MonoBehaviour:
   powerupIndicator: {fileID: 2280918525180567605}
   crashSound: {fileID: 8300000, guid: 095a638eb8f7474449a83e992741237b, type: 3}
   jumpSound: {fileID: 8300000, guid: 1eedf72ad0fb31843ad30b3356f4cbc4, type: 3}
+  playerJoystick:
+    m_Name: Player Joystick
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: abb7126c-9d34-4578-88f7-aef2e14ff4ac
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playerJump:
+    m_Name: Player Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f1004755-5745-45fa-b503-b1444fff46df
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   deathText: {fileID: 0}
+  explode: {fileID: 0}
   explosionPrefab: {fileID: 4215395541070224814, guid: 24d3de1f1fdfeb5c5a10d737d8656f73, type: 3}
 --- !u!82 &4190227110611224715
 AudioSource:
